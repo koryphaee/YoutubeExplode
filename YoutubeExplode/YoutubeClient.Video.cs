@@ -24,6 +24,7 @@ namespace YoutubeExplode
             var playerResponseParser = await GetPlayerResponseParserAsync(videoId);
 
             // Parse info
+            var channelId = playerResponseParser.ParseChannelId();
             var author = playerResponseParser.ParseAuthor();
             var title = playerResponseParser.ParseTitle();
             var duration = playerResponseParser.ParseDuration();
@@ -42,7 +43,7 @@ namespace YoutubeExplode
             var statistics = new Statistics(viewCount, likeCount, dislikeCount);
             var thumbnails = new ThumbnailSet(videoId);
 
-            return new Video(videoId, author, uploadDate, title, description, thumbnails, duration, keywords,
+            return new Video(videoId, channelId, author, uploadDate, title, description, thumbnails, duration, keywords,
                 statistics);
         }
 

@@ -55,7 +55,7 @@ namespace YoutubeExplode
                     var videoStatistics = new Statistics(videoViewCount, videoLikeCount, videoDislikeCount);
                     var videoThumbnails = new ThumbnailSet(videoId);
 
-                    var video = new Video(videoId, videoAuthor, videoUploadDate, videoTitle, videoDescription,
+                    var video = new Video(videoId, null, videoAuthor, videoUploadDate, videoTitle, videoDescription,
                         videoThumbnails, videoDuration, videoKeywords, videoStatistics);
 
                     // Add video to the list if it's not already there

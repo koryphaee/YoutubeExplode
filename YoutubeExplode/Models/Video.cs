@@ -22,6 +22,11 @@ namespace YoutubeExplode.Models
         [NotNull]
         public string Author { get; }
 
+		/// <summary>
+		/// Channel ID of the author.
+		/// </summary>
+        public string ChannelId { get; }
+
         /// <summary>
         /// Upload date of this video.
         /// </summary>
@@ -65,10 +70,11 @@ namespace YoutubeExplode.Models
         /// <summary>
         /// Initializes an instance of <see cref="Video"/>.
         /// </summary>
-        public Video(string id, string author, DateTimeOffset uploadDate, string title, string description,
-            ThumbnailSet thumbnails, TimeSpan duration, IReadOnlyList<string> keywords, Statistics statistics)
+        public Video(string id, string channelId, string author, DateTimeOffset uploadDate, string title, string description,
+	        ThumbnailSet thumbnails, TimeSpan duration, IReadOnlyList<string> keywords, Statistics statistics)
         {
             Id = id.GuardNotNull(nameof(id));
+            ChannelId = channelId;
             Author = author.GuardNotNull(nameof(author));
             UploadDate = uploadDate;
             Title = title.GuardNotNull(nameof(title));
